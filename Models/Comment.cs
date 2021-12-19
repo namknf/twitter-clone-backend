@@ -13,8 +13,8 @@
 
         public DateTime DateComment { get; set; }
 
-        public int TweetId { get; set; }
+        public Tweet TweetId { get; set; }
 
-        public int ProfileId { get; set; }
+        public Profile ProfileId { get; set; }
     }
 }

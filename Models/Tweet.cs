@@ -18,6 +18,6 @@
 
         public Profile[] Likes { get; set; }
 
-        public int ProfileId { get; set; }
+        public Profile ProfilesId { get; set; }
     }
 }

@@ -17,5 +17,13 @@
         public string Description { get; set; }
 
         public DateTime DateProfile { get; }
+
+        public User UserId { get; set; }
+
+        public Tweet[] TweetsId { get; set; }
+
+        public Profile[] Followers { get; set; }
+
+        public Profile[] Following { get; set; }
     }
 }
