@@ -8,10 +8,10 @@
 
     public class User
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        public string email { get; set; }
+        public string Email { get; set; }
 
-        public int password { get; set; }
+        public int Password { get; set; }
     }
 }

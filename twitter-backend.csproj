@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>twitter_backend</RootNamespace>
+	  <CodeAnalysisRuleSet>common.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
