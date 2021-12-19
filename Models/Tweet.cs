@@ -8,5 +8,6 @@
 
     public class Tweet
     {
+        public int Id { get; set; }
     }
 }
