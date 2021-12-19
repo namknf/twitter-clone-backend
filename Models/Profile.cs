@@ -12,6 +12,7 @@
 
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "Enter the correct nickname")]
         public string NickName { get; set; }
 
         public string Description { get; set; }
