@@ -12,7 +12,11 @@
 
         public string Text { get; set; }
 
-        public DateTime Date { get; }
+        public DateTime DateTweet { get; }
+
+        public Comment[] Comments { get; set; }
+
+        public Profile[] Likes { get; set; }
 
         public int ProfileId { get; set; }
     }

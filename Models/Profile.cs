@@ -16,6 +16,6 @@
 
         public string Description { get; set; }
 
-        public DateTime Date { get; }
+        public DateTime DateProfile { get; }
     }
 }
