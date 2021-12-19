@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.EntityFrameworkCore;
+    using BC = BCrypt.Net.BCrypt;
 
     public class User
     {
