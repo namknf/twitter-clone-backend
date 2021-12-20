@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-
-namespace twitter_backend.Data
+﻿namespace Twitter_backend.Data
 {
-    public class twitter_backendContext : IdentityDbContext<IdentityUser>
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore;
+
+    public class Twitter_backendContext : IdentityDbContext<IdentityUser>
     {
-        public twitter_backendContext(DbContextOptions<twitter_backendContext> options)
+        public Twitter_backendContext(DbContextOptions<Twitter_backendContext> options)
             : base(options)
         {
         }
@@ -18,6 +18,7 @@ namespace twitter_backend.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
