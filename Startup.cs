@@ -31,6 +31,8 @@ namespace Twitter_backend
             string connection = Configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContext<UsersContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ProfilesContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<TweetsContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
