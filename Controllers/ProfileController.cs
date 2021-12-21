@@ -1,0 +1,19 @@
+﻿namespace Twitter_backend.Controllers
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Twitter_backend.Models;
+
+    public class ProfileController : Controller
+    {
+        private ProfilesContext _db;
+
+        public ProfileController(ProfilesContext context)
+        {
+            _db = context;
+        }
+    }
+}

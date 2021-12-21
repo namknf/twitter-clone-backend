@@ -10,11 +10,11 @@
 
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UserController : ControllerBase
     {
         private UsersContext _db; // Get data context
 
-        public UsersController(UsersContext context)
+        public UserController(UsersContext context)
         {
             _db = context;
         }
