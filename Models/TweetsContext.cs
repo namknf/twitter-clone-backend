@@ -4,8 +4,11 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Microsoft.EntityFrameworkCore;
 
-    public class TweetsContext
+    public class TweetsContext : DbContext
     {
+
+        public DbSet<Tweet> Tweets { get; set; }
     }
 }
