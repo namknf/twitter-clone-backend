@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Create.cshtml" />
-    <None Include="Index.cshtml" />
+    <None Include="Areas\Identity\Pages\Create.cshtml" />
+    <None Include="Areas\Identity\Pages\Index.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
