@@ -5,7 +5,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Twitter_backend.Models;
 
-    [Route("api/users")]
+    [Route("/api/users")]
     [ApiController]
     public class UserController : Controller
     {
@@ -14,6 +14,13 @@
         public UserController(UsersContext context)
         {
             _db = context;
+
+            if (!_db.Users.Any())
+            {
+                _db.Users.Add(new User { Email = "nastya@mail.ru", Password = 1256327 });
+                _db.Users.Add(new User { Email = "rombik@gmail.com", Password = 317382487 });
+                _db.SaveChanges();
+            }
         }
 
         [HttpPost]

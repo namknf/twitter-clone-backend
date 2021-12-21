@@ -4,7 +4,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Twitter_backend.Models;
 
-    [Route("api/comments")]
+    [Route("/api/comments")]
     [ApiController]
     public class CommentController : Controller
     {
