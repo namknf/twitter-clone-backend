@@ -1,0 +1,12 @@
+﻿@model IEnumerable<EFDataApp.Models.User>
+    @{
+    ViewBag.Title = "Все пользователи";
+    }
+    <a asp-action="Create">Добавить пользователя</a>
+    <table class="table">
+        <tr><td>Email</td><td>Password</td></tr>
+        @foreach (var item in Model)
+        {
+        <tr><td>@item.Email</td><td>@item.Password</td></tr>
+        }
+    </table>

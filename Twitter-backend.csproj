@@ -10,6 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Create.cshtml" />
+    <Content Remove="Pages\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Create.cshtml" />
+    <None Include="Pages\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.12" />

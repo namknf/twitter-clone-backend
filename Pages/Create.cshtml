@@ -1,0 +1,17 @@
+﻿@model EFDataApp.Models.User
+@{
+    ViewBag.Title = "Add user";
+}
+<form asp-action="create" asp-controller="users">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Email</label>
+        <input type="text" asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="control-label">Password</label>
+        <input type="number" asp-for="Password" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Send" class="btn btn-default" />
+    </div>
+</form>
