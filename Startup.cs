@@ -33,6 +33,7 @@ namespace Twitter_backend
             services.AddDbContext<UsersContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<ProfilesContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<TweetsContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<CommentsContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
