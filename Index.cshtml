@@ -1,8 +1,8 @@
-﻿@model IEnumerable<EFDataApp.Models.User>
+﻿@model IEnumerable<Twitter_backend.Models.User>
     @{
     ViewBag.Title = "Все пользователи";
     }
-    <a asp-action="Create">Добавить пользователя</a>
+    <a asp-action="Create">Add user</a>
     <table class="table">
         <tr><td>Email</td><td>Password</td></tr>
         @foreach (var item in Model)

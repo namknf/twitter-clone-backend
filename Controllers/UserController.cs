@@ -8,7 +8,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Twitter_backend.Models;
 
-    [Route("api/Users")]
+    [Route("api/[Users]")]
     [ApiController]
     public class UserController : ControllerBase
     {
