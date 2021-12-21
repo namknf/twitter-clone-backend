@@ -18,6 +18,7 @@
             _db = context;
         }
 
+        [HttpPost]
         public async Task<IActionResult> Create(Profile profile)
         {
             _db.Profiles.Add(profile);

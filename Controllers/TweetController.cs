@@ -18,6 +18,7 @@
             _db = context;
         }
 
+        [HttpPost]
         public async Task<IActionResult> Create(Tweet tweet)
         {
             _db.Tweets.Add(tweet);

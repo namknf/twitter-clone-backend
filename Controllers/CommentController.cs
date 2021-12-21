@@ -18,6 +18,7 @@
             _db = context;
         }
 
+        [HttpPost]
         public async Task<IActionResult> Create(Comment comment)
         {
             _db.Comments.Add(comment);

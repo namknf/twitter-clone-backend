@@ -1,12 +1,15 @@
-﻿@model IEnumerable<Twitter_backend.Models.User>
-    @{
+﻿@using Microsoft.AspNetCore.Identity
+@using Twitter_backend.Areas.Identity
+@using Twitter_backend.Areas.Identity.Pages
+@model IEnumerable<Twitter_backend.Models.User>
+@{
     ViewBag.Title = "All users";
-    }
-    <a asp-action="Create">Add user</a>
-    <table class="table">
-        <tr><td>Email</td><td>Password</td></tr>
-        @foreach (var item in Model)
-        {
+}
+<a asp-action="Create">Add user</a>
+<table class="table">
+    <tr><td>Email</td><td>Password</td></tr>
+    @foreach (var item in Model)
+    {
         <tr><td>@item.Email</td><td>@item.Password</td></tr>
-        }
-    </table>
+    }
+</table>
