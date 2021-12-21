@@ -7,6 +7,8 @@
     using Microsoft.AspNetCore.Mvc;
     using Twitter_backend.Models;
 
+    [Route("api/Profiles")]
+    [ApiController]
     public class ProfileController : Controller
     {
         private ProfilesContext _db;

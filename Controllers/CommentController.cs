@@ -7,6 +7,8 @@
     using Microsoft.AspNetCore.Mvc;
     using Twitter_backend.Models;
 
+    [Route("api/Comments")]
+    [ApiController]
     public class CommentController : Controller
     {
         private CommentsContext _db;
