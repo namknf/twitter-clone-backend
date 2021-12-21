@@ -15,5 +15,12 @@
         {
             _db = context;
         }
+
+        public async Task<IActionResult> Create(Profile profile)
+        {
+            _db.Profiles.Add(profile);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
     }
 }
