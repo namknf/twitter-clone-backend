@@ -1,8 +1,10 @@
 ﻿namespace Twitter_backend.Controllers
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
     using Twitter_backend.Models;
 
     [Route("/api/users")]
@@ -21,6 +23,19 @@
                 _db.Users.Add(new User { Email = "rombik@gmail.com", Password = 317382487 });
                 _db.SaveChanges();
             }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<User>>> Get(int id)
+        {
+            User user = await _db.Users.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return new ObjectResult(user);
         }
 
         [HttpPost]
