@@ -1,9 +1,12 @@
 ﻿namespace Twitter_backend.Controllers
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
     using Twitter_backend.Models;
 
+    [Route("/api/profiles/profileid/tweets")]
     [ApiController]
     public class TweetController : Controller
     {
@@ -20,6 +23,19 @@
             _db.Tweets.Add(tweet);
             await _db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        [HttpGet("{tweetid}")]
+        public async Task<ActionResult<IEnumerable<Tweet>>> Get(int id)
+        {
+            Tweet tweet = await _db.Tweets.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (tweet == null)
+            {
+                return NotFound();
+            }
+
+            return new ObjectResult(tweet);
         }
     }
 }
