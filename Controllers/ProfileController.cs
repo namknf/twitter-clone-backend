@@ -6,6 +6,7 @@
     using Microsoft.EntityFrameworkCore;
     using Twitter_backend.Models;
 
+    [Route("/api/profiles")]
     [ApiController]
     public class ProfileController : Controller
     {
@@ -16,7 +17,7 @@
             _db = context;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{profileid}")]
         public async Task<ActionResult<IEnumerable<Profile>>> Get(int id)
         {
             Profile profile = await _db.Profiles.FirstOrDefaultAsync(x => x.Id == id);
