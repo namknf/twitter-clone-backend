@@ -4,7 +4,6 @@
     using Microsoft.AspNetCore.Mvc;
     using Twitter_backend.Models;
 
-    [Route("/api/tweets")]
     [ApiController]
     public class TweetController : Controller
     {

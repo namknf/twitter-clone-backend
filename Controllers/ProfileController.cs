@@ -6,7 +6,6 @@
     using Microsoft.EntityFrameworkCore;
     using Twitter_backend.Models;
 
-    [Route("/api/profiles")]
     [ApiController]
     public class ProfileController : Controller
     {
