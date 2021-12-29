@@ -16,16 +16,9 @@
         public UserController(UsersContext context)
         {
             _db = context;
-
-            if (!_db.Users.Any())
-            {
-                _db.Users.Add(new User { Email = "nastya@mail.ru", Password = 1256327 });
-                _db.Users.Add(new User { Email = "rombik@gmail.com", Password = 317382487 });
-                _db.SaveChanges();
-            }
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<User>>> Get(int id)
         {
             User user = await _db.Users.FirstOrDefaultAsync(x => x.Id == id);
