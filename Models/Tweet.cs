@@ -15,8 +15,8 @@
 
         public Comment[] Comments { get; set; }
 
-        public Profile[] Likes { get; set; }
+        public User[] Likes { get; set; }
 
-        public Profile ProfilesId { get; set; }
+        public User UserId { get; set; }
     }
 }
