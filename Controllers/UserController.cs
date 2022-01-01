@@ -18,6 +18,19 @@
             _db = context;
         }
 
+        [HttpGet("{userid}")]
+        public async Task<ActionResult<IEnumerable<User>>> Get(int id)
+        {
+            User user = await _db.Users.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return new ObjectResult(user);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(User user)
         {

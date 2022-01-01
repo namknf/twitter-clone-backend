@@ -15,6 +15,6 @@
 
         public Tweet TweetId { get; set; }
 
-        public Profile ProfileId { get; set; }
+        public User UserId { get; set; }
     }
 }
