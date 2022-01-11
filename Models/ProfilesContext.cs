@@ -10,6 +10,6 @@
             Database.EnsureCreated();
         }
 
-        public DbSet<Profile> Profiles { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
