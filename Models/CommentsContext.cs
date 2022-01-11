@@ -10,6 +10,6 @@
             Database.EnsureCreated();
         }
 
-        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Comment> Comments { get; set; } = null!;
     }
 }
