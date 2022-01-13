@@ -1,0 +1,26 @@
+﻿namespace Twitter_backend.ViewModels
+{
+    using System.ComponentModel.DataAnnotations;
+
+    public class RegisterViewModel
+    {
+        [Required]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
+
+        [Required]
+        [Compare("Password", ErrorMessage = "Passwords mismatch")]
+        [DataType(DataType.Password)]
+        [Display(Name = "ConfirmPassword")]
+        public string ConfirmPassword { get; set; }
+    }
+}
