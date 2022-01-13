@@ -10,6 +10,6 @@
             Database.EnsureCreated();
         }
 
-        public DbSet<Tweet> Tweets { get; set; } = null!;
+        public DbSet<Tweet> Tweets { get; set; }
     }
 }
