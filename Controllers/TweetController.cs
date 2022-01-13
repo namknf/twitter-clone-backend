@@ -6,7 +6,7 @@
     using Microsoft.EntityFrameworkCore;
     using Twitter_backend.Models;
 
-    [Route("/api/users/userid/tweets")]
+    [Route("/api/users/{userid}/tweets")]
     [ApiController]
     public class TweetController : Controller
     {

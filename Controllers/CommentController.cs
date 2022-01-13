@@ -6,7 +6,7 @@
     using Microsoft.EntityFrameworkCore;
     using Twitter_backend.Models;
 
-    [Route("/api/users/userid/comments")]
+    [Route("/api/users/{userid}/tweets/{tweetid}/comments")]
     [ApiController]
     public class CommentController : Controller
     {
