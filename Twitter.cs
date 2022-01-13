@@ -8,9 +8,9 @@ namespace Twitter_backend
     using Microsoft.Extensions.Hosting;
     using Twitter_backend.Models;
 
-    public class Startup
+    public class Twitter
     {
-        public Startup(IConfiguration configuration)
+        public Twitter(IConfiguration configuration)
         {
             Configuration = configuration;
         }

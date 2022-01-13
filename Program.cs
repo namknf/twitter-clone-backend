@@ -14,7 +14,7 @@ namespace Twitter_backend
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Twitter>();
                 });
     }
 }
