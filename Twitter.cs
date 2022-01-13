@@ -3,6 +3,7 @@ namespace Twitter_backend
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -24,7 +25,7 @@ namespace Twitter_backend
         {
             services.AddSingleton<IConfiguration>(Configuration);
 
-            string connection = Configuration.GetConnectionString("Twitter-backend");
+            string connection = Configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContext<UsersContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<TweetsContext>(options => options.UseSqlServer(connection));
@@ -54,6 +55,8 @@ namespace Twitter_backend
 
             // adding routing capabilities
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
