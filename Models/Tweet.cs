@@ -5,7 +5,7 @@
 
     public class Tweet
     {
-        public int Id { get; set; }
+        public int Id { get; init; }
 
         public string Text { get; set; }
 

@@ -5,7 +5,7 @@
 
     public class User
     {
-        public int Id { get; set; }
+        public int Id { get; init; }
 
         [Required(ErrorMessage = "Enter the correct E-mail")]
         public string Email { get; set; }
