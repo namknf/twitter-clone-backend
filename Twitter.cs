@@ -2,6 +2,7 @@ namespace Twitter_backend
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -36,8 +37,10 @@ namespace Twitter_backend
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // if the app is under development
             if (env.IsDevelopment())
             {
+                // then we display information about the error, if there is an error
                 app.UseDeveloperExceptionPage();
 
                 // app.UseSwagger();
@@ -46,10 +49,12 @@ namespace Twitter_backend
 
             app.UseHttpsRedirection();
 
+            // adding routing capabilities
             app.UseRouting();
 
             app.UseAuthorization();
 
+            // set addresses to be processed
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
