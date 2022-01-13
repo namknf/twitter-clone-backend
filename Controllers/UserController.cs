@@ -5,16 +5,19 @@
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
     using Twitter_backend.Models;
 
-    [Route("/api/users")]
+    [Route("api/users")]
     [ApiController]
-    public class UserController : Controller
+    public class UserController : ControllerBase
     {
+        private readonly IConfiguration _configuration;
         private UsersContext _db; // Get data context
 
-        public UserController(UsersContext context)
+        public UserController(UsersContext context, IConfiguration config)
         {
+            _configuration = config;
             _db = context;
         }
 

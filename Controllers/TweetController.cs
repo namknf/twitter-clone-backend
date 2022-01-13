@@ -4,16 +4,19 @@
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
     using Twitter_backend.Models;
 
     [Route("/api/users/{userid}/tweets")]
     [ApiController]
-    public class TweetController : Controller
+    public class TweetController : ControllerBase
     {
+        private readonly IConfiguration _configuration;
         private TweetsContext _db;
 
-        public TweetController(TweetsContext context)
+        public TweetController(TweetsContext context, IConfiguration config)
         {
+            _configuration = config;
             _db = context;
         }
 

@@ -4,16 +4,19 @@
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
     using Twitter_backend.Models;
 
     [Route("/api/users/{userid}/tweets/{tweetid}/comments")]
     [ApiController]
-    public class CommentController : Controller
+    public class CommentController : ControllerBase
     {
+        private readonly IConfiguration _configuration;
         private CommentsContext _db;
 
-        public CommentController(CommentsContext context)
+        public CommentController(CommentsContext context, IConfiguration config)
         {
+            _configuration = config;
             _db = context;
         }
 
