@@ -9,9 +9,7 @@
 
         public string Text { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime DateComment { get; }
+        public DateTime DateComment { get; init; }
 
         public Tweet TweetId { get; init; }
 

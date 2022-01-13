@@ -1,7 +1,6 @@
 ﻿namespace Twitter_backend.Models
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
 
     public class Tweet
     {
@@ -9,9 +8,7 @@
 
         public string Text { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime DateTweet { get; }
+        public DateTime DateTweet { get; init; }
 
         public Comment[] Comments { get; set; }
 
