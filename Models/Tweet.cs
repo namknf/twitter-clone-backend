@@ -17,6 +17,6 @@
 
         public User[] Likes { get; set; }
 
-        public User UserId { get; set; }
+        public User UserId { get; init; }
     }
 }

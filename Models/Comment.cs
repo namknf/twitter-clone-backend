@@ -11,10 +11,10 @@
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime DateComment { get; set; }
+        public DateTime DateComment { get; }
 
-        public Tweet TweetId { get; set; }
+        public Tweet TweetId { get; init; }
 
-        public User UserId { get; set; }
+        public User UserId { get; init; }
     }
 }

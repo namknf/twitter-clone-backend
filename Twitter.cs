@@ -7,6 +7,7 @@ namespace Twitter_backend
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Microsoft.OpenApi.Models;
     using Twitter_backend.Models;
 
     public class Twitter
