@@ -32,10 +32,11 @@ namespace Twitter_backend
             services.AddDbContext<CommentsContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Twitter_backend", Version = "v1" });
-            });
+            // services.AddSwaggerGen(c =>
+            // {
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Twitter_backend", Version = "v1" });
+            // });
+            // services.AddApplicationInsightsTelemetry();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,8 +48,8 @@ namespace Twitter_backend
                 // then we display information about the error, if there is an error
                 app.UseDeveloperExceptionPage();
 
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Twitter_backend v1"));
+                // app.UseSwagger();
+                // app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Twitter_backend v1"));
             }
 
             app.UseHttpsRedirection();
