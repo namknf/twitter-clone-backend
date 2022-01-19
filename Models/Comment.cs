@@ -7,7 +7,7 @@
     {
         public int Id { get; init; }
 
-        public string Text { get; set; }
+        public string Text { get; init; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
