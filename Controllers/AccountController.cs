@@ -23,6 +23,7 @@
             return View();
         }
 
+        [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
