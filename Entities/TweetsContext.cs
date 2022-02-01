@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
 
-    public class TweetsContext : DbContext
+    public sealed class TweetsContext : DbContext
     {
         public TweetsContext(DbContextOptions<TweetsContext> options)
             : base(options)

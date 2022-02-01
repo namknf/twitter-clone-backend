@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
 
-    public class UsersContext : DbContext
+    public sealed class UsersContext : DbContext
     {
         public UsersContext(DbContextOptions<UsersContext> options)
             : base(options)

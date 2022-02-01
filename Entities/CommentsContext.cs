@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
 
-    public class CommentsContext : DbContext
+    public sealed class CommentsContext : DbContext
     {
         public CommentsContext(DbContextOptions<CommentsContext> options)
             : base(options)
