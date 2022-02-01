@@ -5,9 +5,9 @@
 
     public interface IUserService
     {
-        AuthenticateResponse Authenticate(AuthenticateRequest model);
+        AuthorizeResponse Authenticate(AuthorizeRequest model);
 
-        Task<AuthenticateResponse> Registration(UserModel userModel);
+        Task<AuthorizeResponse> Registration(UserModel userModel);
 
         UserModel GetById(int id);
     }
