@@ -10,34 +10,32 @@
 
     [Route("api/users")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UsersController : Controller
     {
-        private readonly IConfiguration _configuration;
-        private UsersContext _db; // Get data context
+        private readonly UsersContext _db; // Get data context
 
-        public UserController(UsersContext context, IConfiguration config)
+        public UsersController(UsersContext context)
         {
-            _configuration = config;
             _db = context;
         }
 
-        [HttpGet("{userid}")]
+        [HttpGet("{user-id}")]
         public async Task<ActionResult<IEnumerable<User>>> Get(int id)
         {
-            User user = await _db.Users.FirstOrDefaultAsync(x => x.Id == id);
+            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == id);
 
             if (user == null)
             {
                 return NotFound();
             }
 
-            return new ObjectResult(user);
+            return Ok(user);
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(User user)
         {
-            _db.Users.Add(user); // Create sql-expresiion INSERT
+            _db.Users.Add(user); // Create sql-expression INSERT
 
             // executes expression
             // Add data in database

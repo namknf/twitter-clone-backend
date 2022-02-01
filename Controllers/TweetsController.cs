@@ -7,16 +7,14 @@
     using Microsoft.Extensions.Configuration;
     using Twitter_backend.Models;
 
-    [Route("/api/users/{userid}/tweets")]
+    [Route("api/users/{user-id}/tweets")]
     [ApiController]
-    public class TweetController : ControllerBase
+    public class TweetsController : Controller
     {
-        private readonly IConfiguration _configuration;
-        private TweetsContext _db;
+        private readonly TweetsContext _db;
 
-        public TweetController(TweetsContext context, IConfiguration config)
+        public TweetsController(TweetsContext context)
         {
-            _configuration = config;
             _db = context;
         }
 
@@ -28,10 +26,10 @@
             return RedirectToAction("Index");
         }
 
-        [HttpGet("{tweetid}")]
+        [HttpGet("{tweet-id}")]
         public async Task<ActionResult<IEnumerable<Tweet>>> Get(int id)
         {
-            Tweet tweet = await _db.Tweets.FirstOrDefaultAsync(x => x.Id == id);
+            var tweet = await _db.Tweets.FirstOrDefaultAsync(x => x.Id == id);
 
             if (tweet == null)
             {

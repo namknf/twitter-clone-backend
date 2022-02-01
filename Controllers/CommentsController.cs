@@ -4,19 +4,16 @@
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Configuration;
     using Twitter_backend.Models;
 
-    [Route("/api/users/{userid}/tweets/{tweetid}/comments")]
+    [Route("api/users/{user-id}/tweets/{tweet-id}/comments")]
     [ApiController]
-    public class CommentController : ControllerBase
+    public class CommentsController : Controller
     {
-        private readonly IConfiguration _configuration;
-        private CommentsContext _db;
+        private readonly CommentsContext _db;
 
-        public CommentController(CommentsContext context, IConfiguration config)
+        public CommentsController(CommentsContext context)
         {
-            _configuration = config;
             _db = context;
         }
 
@@ -28,17 +25,17 @@
             return RedirectToAction("Index");
         }
 
-        [HttpGet("{commentid}")]
+        [HttpGet("{comment-id}")]
         public async Task<ActionResult<IEnumerable<Comment>>> Get(int id)
         {
-            Comment comment = await _db.Comments.FirstOrDefaultAsync(x => x.Id == id);
+            var comment = await _db.Comments.FirstOrDefaultAsync(x => x.Id == id);
 
             if (comment == null)
             {
                 return NotFound();
             }
 
-            return new ObjectResult(comment);
+            return Ok(comment);
         }
     }
 }
