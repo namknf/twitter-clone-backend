@@ -38,16 +38,16 @@
             try
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(_configuration["SecretInformation"]);
+                var key = Encoding.ASCII.GetBytes(_configuration["!S#cr#tI&nf0rm_5"]);
 
-                tokenHandler.ValidateToken(token, new TokenValidationParameters
+                tokenHandler.ValidateToken(token: token, validationParameters: new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = false,
                     ValidateAudience = false,
                     ClockSkew = TimeSpan.Zero,
-                }, out SecurityToken validatedToken);
+                },  out SecurityToken validatedToken);
 
                 var jwtToken = (JwtSecurityToken)validatedToken;
                 var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
@@ -56,6 +56,7 @@
             }
             catch
             {
+                throw new ApplicationException();
             }
         }
     }
