@@ -2,13 +2,14 @@
 {
     using System.Threading.Tasks;
     using Twitter_backend.Entities;
+    using Twitter_backend.Models;
 
     public interface IUserService
     {
-        AuthorizeResponse Authenticate(AuthorizeRequest model);
+        AuthorizeResponse Authorize(AuthorizeRequest model);
 
-        Task<AuthorizeResponse> Registration(UserModel userModel);
+        Task<AuthorizeResponse> Registration(User user);
 
-        UserModel GetById(int id);
+        User GetById(int id);
     }
 }
