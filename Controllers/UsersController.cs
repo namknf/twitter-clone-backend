@@ -1,11 +1,9 @@
 ﻿namespace Twitter_backend.Controllers
 {
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Configuration;
     using Twitter_backend.Models;
 
     [Route("api/users")]
@@ -19,6 +17,7 @@
             _db = context;
         }
 
+        // GET ../users/user-id
         [HttpGet("{user-id}")]
         public async Task<ActionResult<IEnumerable<User>>> Get(int id)
         {
@@ -32,15 +31,15 @@
             return Ok(user);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(User user)
-        {
-            _db.Users.Add(user); // Create sql-expression INSERT
+        // [HttpPost]
+        // public async Task<IActionResult> Create(User user)
+        // {
+        //    _db.Users.Add(user); // Create sql-expression INSERT
 
-            // executes expression
-            // Add data in database
-            await _db.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
+        // // executes expression
+        //    // Add data in database
+        //    await _db.SaveChangesAsync();
+        //    return RedirectToAction("Index");
+        // }
     }
 }

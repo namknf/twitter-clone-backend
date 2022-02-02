@@ -10,21 +10,22 @@
     [ApiController]
     public class CommentsController : Controller
     {
-        private readonly CommentsContext _db;
+        private readonly CommentsContext _db; // including database
 
         public CommentsController(CommentsContext context)
         {
             _db = context;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(Comment comment)
-        {
-            _db.Comments.Add(comment);
-            await _db.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
+        // [HttpPost]
+        // public async Task<IActionResult> Create(Comment comment)
+        // {
+        //    _db.Comments.Add(comment);
+        //    await _db.SaveChangesAsync();
+        //    return RedirectToAction("Index");
+        // }
 
+        // GET ../comments/comment-id
         [HttpGet("{comment-id}")]
         public async Task<ActionResult<IEnumerable<Comment>>> Get(int id)
         {

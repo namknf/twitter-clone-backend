@@ -18,14 +18,15 @@
             _db = context;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(Tweet tweet)
-        {
-            _db.Tweets.Add(tweet);
-            await _db.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
+        // [HttpPost]
+        // public async Task<IActionResult> Create(Tweet tweet)
+        // {
+        //    _db.Tweets.Add(tweet);
+        //    await _db.SaveChangesAsync();
+        //    return RedirectToAction("Index");
+        // }
 
+        // GET ../tweets/tweet-id
         [HttpGet("{tweet-id}")]
         public async Task<ActionResult<IEnumerable<Tweet>>> Get(int id)
         {
