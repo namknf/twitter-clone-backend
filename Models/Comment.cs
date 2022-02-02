@@ -3,10 +3,8 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Comment
+    public class Comment : ModelBase
     {
-        public int Id { get; init; }
-
         public string Text { get; init; }
 
         [DataType(DataType.Date)]

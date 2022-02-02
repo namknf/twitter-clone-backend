@@ -2,11 +2,10 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Tweet
+    public class Tweet : ModelBase
     {
-        public int Id { get; init; }
-
         public string Text { get; set; }
 
         [DataType(DataType.Date)]
@@ -15,6 +14,7 @@
 
         public Comment[] Comments { get; set; }
 
+        [NotMapped]
         public User[] Likes { get; set; }
 
         public User UserId { get; init; }
