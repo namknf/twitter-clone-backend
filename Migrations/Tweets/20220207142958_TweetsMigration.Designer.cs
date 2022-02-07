@@ -13,7 +13,7 @@ namespace twitter_backend.Migrations.Tweets
     [Migration("20220207142958_TweetsMigration")]
     partial class TweetsMigration
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

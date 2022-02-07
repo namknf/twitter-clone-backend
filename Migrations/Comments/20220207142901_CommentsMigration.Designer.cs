@@ -13,7 +13,7 @@ namespace twitter_backend.Migrations
     [Migration("20220207142901_CommentsMigration")]
     partial class CommentsMigration
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

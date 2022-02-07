@@ -47,7 +47,9 @@
                     ValidateIssuer = false,
                     ValidateAudience = false,
                     ClockSkew = TimeSpan.Zero,
-                },  out SecurityToken validatedToken);
+#pragma warning disable SA1117 // Parameters should be on same line or separate lines
+                }, out SecurityToken validatedToken);
+#pragma warning restore SA1117 // Parameters should be on same line or separate lines
 
                 var jwtToken = (JwtSecurityToken)validatedToken;
                 var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);

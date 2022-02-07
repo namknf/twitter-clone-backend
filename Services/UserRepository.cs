@@ -1,10 +1,11 @@
 ﻿namespace Twitter_backend.Services
 {
+    using System.Linq;
     using System.Threading.Tasks;
     using Twitter_backend.Models;
-    using System.Linq;
 
-    public class UserRepository<T> : IAuthRegisterRepository<T> where T : Models.ModelBase
+    public class UserRepository<T> : IAuthRegisterRepository<T>
+        where T : ModelBase
     {
         private readonly UsersContext _context;
 

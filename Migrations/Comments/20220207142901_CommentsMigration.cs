@@ -1,8 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace twitter_backend.Migrations
+﻿namespace Twitter_backend.Migrations.Comments
 {
+    using System;
+    using Microsoft.EntityFrameworkCore.Migrations;
+
+    /// <summary>
+    /// Migration for db CommentsContext.
+    /// </summary>
     public partial class CommentsMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +21,7 @@ namespace twitter_backend.Migrations
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NickName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -33,7 +36,7 @@ namespace twitter_backend.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateTweet = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserIdId = table.Column<int>(type: "int", nullable: true)
+                    UserIdId = table.Column<int>(type: "int", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -51,7 +54,7 @@ namespace twitter_backend.Migrations
                 columns: table => new
                 {
                     FollowersId = table.Column<int>(type: "int", nullable: false),
-                    FollowingId = table.Column<int>(type: "int", nullable: false)
+                    FollowingId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -79,7 +82,7 @@ namespace twitter_backend.Migrations
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateComment = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TweetIdId = table.Column<int>(type: "int", nullable: true),
-                    UserIdId = table.Column<int>(type: "int", nullable: true)
+                    UserIdId = table.Column<int>(type: "int", nullable: true),
                 },
                 constraints: table =>
                 {

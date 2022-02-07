@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Twitter_backend.Models;
 
-namespace twitter_backend.Migrations
+namespace Twitter_backend.Migrations.Comments
 {
     [DbContext(typeof(CommentsContext))]
     partial class CommentsContextModelSnapshot : ModelSnapshot
