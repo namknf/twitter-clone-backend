@@ -7,6 +7,7 @@ namespace Twitter_backend
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.OpenApi.Models;
+    using Twitter_backend.Entities;
     using Twitter_backend.Models;
 
     public class Twitter
@@ -27,6 +28,7 @@ namespace Twitter_backend
             services.AddDbContext<TweetsContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<CommentsContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
+            services.AddAutoMapper(typeof(UserProfile));
 
             services.AddSwaggerGen(c =>
             {
