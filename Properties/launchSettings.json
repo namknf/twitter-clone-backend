@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "twitter_backend": {
+    "Twitter_backend": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
