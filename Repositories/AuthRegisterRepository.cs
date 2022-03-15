@@ -4,6 +4,7 @@
     using System.Threading.Tasks;
     using Twitter_backend.Models;
     using Twitter_backend.Data;
+    using System.Collections.Generic;
 
     public class AuthRegisterRepository<T> : IAuthRegisterRepository<T>
         where T : ModelBase
@@ -13,6 +14,11 @@
         public AuthRegisterRepository(TwitterContext dbContext)
         {
             _dbContext = dbContext;
+        }
+
+        public List<T> GetAll()
+        {
+            return _dbContext.Set<T>().ToList();
         }
 
         public async Task<int> Add(T entity)
