@@ -21,7 +21,7 @@
             _configuration = configuration;
         }
 
-        public async Task Invoke(HttpContext context, IUserService service)
+        public async Task Invoke(HttpContext context, IAuthService service)
         {
             var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
@@ -33,7 +33,7 @@
             await _next(context);
         }
 
-        public void AttachUserToContext(HttpContext context, IUserService service, string token)
+        public void AttachUserToContext(HttpContext context, IAuthService service, string token)
         {
             try
             {
@@ -47,9 +47,7 @@
                     ValidateIssuer = false,
                     ValidateAudience = false,
                     ClockSkew = TimeSpan.Zero,
-#pragma warning disable SA1117 // Parameters should be on same line or separate lines
                 }, out SecurityToken validatedToken);
-#pragma warning restore SA1117 // Parameters should be on same line or separate lines
 
                 var jwtToken = (JwtSecurityToken)validatedToken;
                 var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
