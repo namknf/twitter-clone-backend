@@ -3,18 +3,32 @@
     using System.Linq;
     using System.Threading.Tasks;
     using Twitter_backend.Models;
+    using Twitter_backend.Data;
 
     public class AuthRegisterRepository<T> : IAuthRegisterRepository<T>
         where T : ModelBase
     {
-        public Task<int> Add(T entity)
+        private readonly TwitterContext _dbContext;
+
+        public AuthRegisterRepository(TwitterContext dbContext)
         {
-            throw new System.NotImplementedException();
+            _dbContext = dbContext;
+        }
+
+        public async Task<int> Add(T entity)
+        {
+            var addedItem = await _dbContext.Set<T>().AddAsync(entity);
+
+            await _dbContext.SaveChangesAsync();
+
+            return addedItem.Entity.Id;
         }
 
         public T GetById(int id)
         {
-            throw new System.NotImplementedException();
+            var gettingItem = _dbContext.Set<T>().FirstOrDefault(item => item.Id == id);
+
+            return gettingItem;
         }
     }
 }
