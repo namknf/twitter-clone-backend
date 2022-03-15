@@ -8,7 +8,7 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Configuration;
     using Microsoft.IdentityModel.Tokens;
-    using Twitter_backend.Services;
+    using Twitter_backend.Services.Account;
 
     public class JwtMiddleware
     {

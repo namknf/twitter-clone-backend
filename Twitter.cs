@@ -6,6 +6,8 @@ namespace Twitter_backend
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.OpenApi.Models;
+    using Microsoft.EntityFrameworkCore;
+    using Twitter_backend.Data;
 
     public class Twitter
     {
@@ -19,7 +21,10 @@ namespace Twitter_backend
         // Get connection string from configuration file
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = Configuration.GetConnectionString("twitter_backendContextConnection");
+            var connection = Configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContext<TwitterContext>(options =>
+                options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
 

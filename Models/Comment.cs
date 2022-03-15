@@ -1,15 +1,24 @@
-﻿namespace Twitter_backend.Models
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace Twitter_backend.Models
 {
-    using System;
-
-    public class Comment : ModelBase
+    public partial class Comment
     {
-        public string Text { get; init; }
+        public int Id { get; set; }
 
-        public DateTime DateComment { get; init; }
+        public string TextComment { get; set; }
 
-        public Tweet TweetId { get; init; }
+        public DateTime DateComment { get; set; }
 
-        public User UserId { get; init; }
+        public int UserId { get; set; }
+
+        public int TweetId { get; set; }
+
+        public virtual Tweet Tweet { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

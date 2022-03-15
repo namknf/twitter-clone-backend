@@ -1,4 +1,4 @@
-﻿namespace Twitter_backend.Services.User
+﻿namespace Twitter_backend.Services.Account
 {
     using System;
     using System.Linq;
