@@ -1,4 +1,4 @@
-﻿namespace Twitter_backend.Services
+﻿namespace Twitter_backend.Repositories
 {
     using System.Threading.Tasks;
     using Twitter_backend.Models;

@@ -2,13 +2,10 @@ namespace Twitter_backend
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
-    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.OpenApi.Models;
-    using Twitter_backend.Entities;
-    using Twitter_backend.Models;
 
     public class Twitter
     {
@@ -24,11 +21,7 @@ namespace Twitter_backend
         {
             var connection = Configuration.GetConnectionString("twitter_backendContextConnection");
 
-            services.AddDbContext<UsersContext>(options => options.UseSqlServer(connection));
-            services.AddDbContext<TweetsContext>(options => options.UseSqlServer(connection));
-            services.AddDbContext<CommentsContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
-            services.AddAutoMapper(typeof(UserProfile));
 
             services.AddSwaggerGen(c =>
             {

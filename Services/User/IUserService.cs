@@ -1,4 +1,4 @@
-﻿namespace Twitter_backend.Services
+﻿namespace Twitter_backend.Services.User
 {
     using System.Threading.Tasks;
     using Twitter_backend.Entities;

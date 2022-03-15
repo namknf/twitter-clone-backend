@@ -1,14 +1,11 @@
 ﻿namespace Twitter_backend.Models
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
 
     public class Comment : ModelBase
     {
         public string Text { get; init; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateComment { get; init; }
 
         public Tweet TweetId { get; init; }

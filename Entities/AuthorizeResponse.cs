@@ -1,5 +1,6 @@
 ﻿namespace Twitter_backend.Entities
 {
+    using System.Collections.Generic;
     using Twitter_backend.Models;
 
     public class AuthorizeResponse
@@ -27,11 +28,11 @@
 
         public string Description { get; init; }
 
-        public Tweet[] Tweets { get; init; }
+        public ICollection<Tweet> Tweets { get; init; }
 
-        public User[] Followers { get; init; }
+        public ICollection<User> Followers { get; init; }
 
-        public User[] Following { get; init; }
+        public ICollection<User> Following { get; init; }
 
         public string Token { get; set; }
     }

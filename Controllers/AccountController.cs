@@ -3,12 +3,11 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Configuration;
     using Twitter_backend.Models;
 
-    [Route("api/users/{user-id}/tweets")]
+    [Route("api/users")]
     [ApiController]
-    public class TweetsController : Controller
+    public class AccountController : Controller
     {
     }
 }

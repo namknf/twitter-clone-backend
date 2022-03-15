@@ -1,4 +1,4 @@
-﻿namespace Twitter_backend.Services
+﻿namespace Twitter_backend.Services.Tweet
 {
     internal interface ITweetService
     {
