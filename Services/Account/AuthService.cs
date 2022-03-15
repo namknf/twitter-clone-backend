@@ -12,14 +12,14 @@
     using Twitter_backend.Helpers;
     using BCryptNet = BCrypt.Net.BCrypt;
 
-    public class UserService : IUserService
+    public class AuthService : IAuthService
     {
         private readonly AuthRegisterRepository<User> _authRepository;
         private readonly TwitterContext _context;
         private readonly IConfiguration _configuration;
         private readonly IMapper _map;
 
-        public UserService(IConfiguration configuration, IMapper map, AuthRegisterRepository<User> authRepository, TwitterContext context)
+        public AuthService(IConfiguration configuration, IMapper map, AuthRegisterRepository<User> authRepository, TwitterContext context)
         {
             _configuration = configuration;
             _map = map;

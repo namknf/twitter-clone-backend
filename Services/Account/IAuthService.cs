@@ -4,7 +4,7 @@
     using Twitter_backend.Entities;
     using Twitter_backend.Models;
 
-    public interface IUserService
+    public interface IAuthService
     {
         AuthorizeResponse Authorize(AuthorizeRequest model);
 
