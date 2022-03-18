@@ -1,13 +1,17 @@
 namespace Twitter_backend
 {
+    using AutoMapper;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.OpenApi.Models;
-    using Microsoft.EntityFrameworkCore;
     using Twitter_backend.Data;
+    using Twitter_backend.Mappers;
+    using Twitter_backend.Repositories;
+    using Twitter_backend.Services.Account;
 
     public class Twitter
     {
@@ -21,12 +25,15 @@ namespace Twitter_backend
         // Get connection string from configuration file
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = Configuration.GetConnectionString("DefaultConnection");
-
             services.AddDbContext<TwitterContext>(options =>
                 options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
+
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped(typeof(IAuthRegisterRepository<>), typeof(AuthRegisterRepository<>));
+
+            services.AddAutoMapper(typeof(UserMapper));
 
             services.AddSwaggerGen(c =>
             {
