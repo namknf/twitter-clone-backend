@@ -18,7 +18,7 @@
         }
 
         [HttpPost("authenticate")]
-        public IActionResult Authenticate(AuthorizeRequest request)
+        public IActionResult Authenticate([FromBody] AuthorizeRequest request)
         {
             var response = _authService.Authorize(request);
 
@@ -31,7 +31,7 @@
         }
 
         [HttpPost("registration")]
-        public async Task<IActionResult> Register(User user)
+        public async Task<IActionResult> Register([FromBody] User user)
         {
             var response = await _authService.Registration(user);
 
