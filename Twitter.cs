@@ -29,8 +29,8 @@ namespace Twitter_backend
                 options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
+            services.AddCors();
 
-            services.AddScoped<IAuthService, AuthService>();
             services.AddScoped(typeof(IAuthRegisterRepository<>), typeof(AuthRegisterRepository<>));
 
             services.AddAutoMapper(typeof(UserMapper));
@@ -39,6 +39,8 @@ namespace Twitter_backend
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Twitter_backend", Version = "v1" });
             });
+
+            services.AddScoped<IAuthService, AuthService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

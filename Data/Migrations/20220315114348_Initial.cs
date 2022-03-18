@@ -1,9 +1,12 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace Twitter_backend.Data.Migrations
+﻿namespace Twitter_backend.Data.Migrations
 {
+    using System;
+    using Microsoft.EntityFrameworkCore.Metadata;
+    using Microsoft.EntityFrameworkCore.Migrations;
+
+    /// <summary>
+    /// .
+    /// </summary>
     public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -27,7 +30,7 @@ namespace Twitter_backend.Data.Migrations
                     nick_name = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false, collation: "utf8mb4_0900_ai_ci")
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     description = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false, collation: "utf8mb4_0900_ai_ci")
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                 },
                 constraints: table =>
                 {
@@ -45,7 +48,7 @@ namespace Twitter_backend.Data.Migrations
                     text = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false, collation: "utf8mb4_0900_ai_ci")
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     date_tweet = table.Column<DateTime>(type: "datetime", nullable: false),
-                    user_id = table.Column<int>(type: "int", nullable: false)
+                    user_id = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -70,7 +73,7 @@ namespace Twitter_backend.Data.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     date_comment = table.Column<DateTime>(type: "datetime", nullable: false),
                     user_id = table.Column<int>(type: "int", nullable: false),
-                    tweet_id = table.Column<int>(type: "int", nullable: false)
+                    tweet_id = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {

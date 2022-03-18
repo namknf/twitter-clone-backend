@@ -4,9 +4,12 @@ namespace Twitter_backend.Data
 {
     using System;
     using Microsoft.EntityFrameworkCore;
-    using Twitter_backend.Models;
     using Microsoft.EntityFrameworkCore.Metadata;
+    using Twitter_backend.Models;
 
+    /// <summary>
+    /// .
+    /// </summary>
     public partial class TwitterContext : DbContext
     {
         public TwitterContext()

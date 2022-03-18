@@ -5,11 +5,11 @@
     using System.Threading.Tasks;
     using AutoMapper;
     using Microsoft.Extensions.Configuration;
+    using Twitter_backend.Data;
     using Twitter_backend.Entities;
+    using Twitter_backend.Helpers;
     using Twitter_backend.Models;
     using Twitter_backend.Repositories;
-    using Twitter_backend.Data;
-    using Twitter_backend.Helpers;
     using BCryptNet = BCrypt.Net.BCrypt;
 
     public class AuthService : IAuthService

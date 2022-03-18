@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
+﻿#nullable disable
 
 namespace Twitter_backend.Models
 {
+    using System;
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// .
+    /// </summary>
     public partial class Comment
     {
         public int Id { get; set; }

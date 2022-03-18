@@ -1,10 +1,10 @@
 ﻿namespace Twitter_backend.Repositories
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Twitter_backend.Models;
     using Twitter_backend.Data;
-    using System.Collections.Generic;
+    using Twitter_backend.Models;
 
     public class AuthRegisterRepository<T> : IAuthRegisterRepository<T>
         where T : ModelBase

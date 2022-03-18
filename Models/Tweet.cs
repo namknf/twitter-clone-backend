@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
+﻿#nullable disable
 
 namespace Twitter_backend.Models
 {
+    using System;
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// .
+    /// </summary>
     public partial class Tweet
     {
         public Tweet()
@@ -19,7 +22,6 @@ namespace Twitter_backend.Models
         public DateTime DateTweet { get; set; }
 
         public int UserId { get; set; }
-
 
         public virtual User User { get; set; }
 

@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace Twitter_backend.Repositories
+﻿namespace Twitter_backend.Repositories
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Twitter_backend.Models;
 

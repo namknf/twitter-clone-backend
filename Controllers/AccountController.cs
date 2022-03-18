@@ -1,6 +1,5 @@
 ﻿namespace Twitter_backend.Controllers
 {
-    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Twitter_backend.Entities;
@@ -25,19 +24,20 @@
 
             if (response == null)
             {
-                return BadRequest(new {message = "Username or password are incorrect"});
+                return BadRequest(new { message = "Username or password are incorrect" });
             }
 
             return Ok();
         }
 
+        [HttpPost("registration")]
         public async Task<IActionResult> Register(User user)
         {
             var response = await _authService.Registration(user);
 
             if (response == null)
             {
-                return BadRequest(new {message = "User didn't register"});
+                return BadRequest(new { message = "User didn't register" });
             }
 
             return Ok(response);
