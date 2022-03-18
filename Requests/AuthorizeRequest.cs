@@ -1,4 +1,4 @@
-﻿namespace Twitter_backend.Entities
+﻿namespace Twitter_backend.Requests
 {
     using System.ComponentModel.DataAnnotations;
 

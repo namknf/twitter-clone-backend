@@ -1,8 +1,8 @@
 ﻿namespace Twitter_backend.Mappers
 {
     using AutoMapper;
-    using Twitter_backend.Entities;
     using Twitter_backend.Models;
+    using Twitter_backend.Responses;
 
     public class UserMapper : Profile
     {

@@ -1,4 +1,4 @@
-﻿namespace Twitter_backend.Entities
+﻿namespace Twitter_backend.Responses
 {
     using System.Collections.Generic;
     using Twitter_backend.Models;
