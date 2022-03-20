@@ -10,7 +10,7 @@
             Id = user.Id;
             Name = user.Name;
             Email = user.Email;
-            NickName = user.NickName;
+            Nickname = user.Nickname;
             Description = user.Description;
             Tweets = user.Tweets;
             Followers = user.Followers;
@@ -24,7 +24,7 @@
 
         public string Email { get; init; }
 
-        public string NickName { get; init; }
+        public string Nickname { get; init; }
 
         public string Description { get; init; }
 
