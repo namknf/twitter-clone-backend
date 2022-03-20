@@ -5,7 +5,6 @@
     using Twitter_backend.Models;
 
     internal interface IAuthRegisterRepository<T>
-        where T : ModelBase
     {
         T GetById(int id);
 
