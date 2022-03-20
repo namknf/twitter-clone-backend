@@ -67,9 +67,8 @@ namespace Twitter_backend.Data
                 entity.Property(e => e.Date).HasColumnType("date");
             });
 
-            OnModelCreatingPartial(modelBuilder);
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.HasDefaultSchema("public");
         }
-
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }
