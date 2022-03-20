@@ -8,20 +8,18 @@ namespace Twitter_backend.Models
     /// <summary>
     /// .
     /// </summary>
-    public partial class Tweet
+    public partial class Tweet : ModelBase
     {
         public Tweet()
         {
             Comments = new HashSet<Comment>();
         }
 
-        public int Id { get; set; }
-
         public string Text { get; set; }
 
-        public DateTime DateTweet { get; set; }
+        public DateTime? DateTweet { get; set; }
 
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
 
         public virtual User User { get; set; }
 

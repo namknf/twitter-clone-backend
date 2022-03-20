@@ -18,15 +18,15 @@ namespace Twitter_backend.Models
 
         public string Email { get; set; }
 
-        public DateTime Date { get; set; }
-
         public string Password { get; set; }
 
         public string PasswordHash { get; set; }
 
+        public DateTime? Date { get; set; }
+
         public string Name { get; set; }
 
-        public string NickName { get; set; }
+        public string Nickname { get; set; }
 
         public string Description { get; set; }
 

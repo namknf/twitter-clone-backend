@@ -8,17 +8,15 @@ namespace Twitter_backend.Models
     /// <summary>
     /// .
     /// </summary>
-    public partial class Comment
+    public partial class Comment : ModelBase
     {
-        public int Id { get; set; }
-
         public string TextComment { get; set; }
 
-        public DateTime DateComment { get; set; }
+        public DateTime? DateComment { get; set; }
 
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
 
-        public int TweetId { get; set; }
+        public int? TweetId { get; set; }
 
         public virtual Tweet Tweet { get; set; }
 
