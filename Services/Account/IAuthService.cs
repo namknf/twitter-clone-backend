@@ -9,7 +9,7 @@
     {
         AuthorizeResponse Authorize(AuthorizeRequest model);
 
-        Task<AuthorizeResponse> Registration(User user);
+        Task<AuthorizeResponse> Registration(RegisterModel user);
 
         User GetById(int id);
     }

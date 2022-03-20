@@ -54,7 +54,7 @@
             return _authRepository.GetById(id);
         }
 
-        public async Task<AuthorizeResponse> Registration(User userModel)
+        public async Task<AuthorizeResponse> Registration(RegisterModel userModel)
         {
             // map model to new user object
             var user = _map.Map<User>(userModel);
@@ -67,7 +67,7 @@
             // hash password
             user.PasswordHash = BCryptNet.HashPassword(user.Password);
 
-            await _authRepository.Add(userModel);
+            await _authRepository.Add(user);
 
             var response = Authorize(
                 new AuthorizeRequest

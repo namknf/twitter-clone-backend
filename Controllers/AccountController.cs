@@ -6,7 +6,7 @@
     using Twitter_backend.Requests;
     using Twitter_backend.Services.Account;
 
-    [Route("/api/account")]
+    [Route("api/account")]
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -31,7 +31,7 @@
         }
 
         [HttpPost("registration")]
-        public async Task<IActionResult> Register(User user)
+        public async Task<IActionResult> Register(RegisterModel user)
         {
             var response = await _authService.Registration(user);
 
