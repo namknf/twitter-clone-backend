@@ -1,5 +1,6 @@
 namespace Twitter_backend
 {
+    using System;
     using AutoMapper;
     using FluentValidation.AspNetCore;
     using Microsoft.AspNetCore.Builder;
@@ -27,8 +28,10 @@ namespace Twitter_backend
         // Get connection string from configuration file
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+
             services.AddDbContext<TwitterContext>(options =>
-                options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(connectionString));
 
             services.AddControllers();
             services.AddCors();

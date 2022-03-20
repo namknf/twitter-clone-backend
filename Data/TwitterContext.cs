@@ -32,112 +32,39 @@ namespace Twitter_backend.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseMySql("server=localhost;userid=root;password=52GeNn38U_d!;database=twitter;charset=utf8;persist security info=True", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.28-mysql"));
+                optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=twitter;Username=postgres;Password=Ye8g6K_r?");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasCharSet("utf8mb4")
-                .UseCollation("utf8mb4_0900_ai_ci");
+            modelBuilder.HasAnnotation("Relational:Collation", "Russian_Russia.1251");
 
             modelBuilder.Entity<Comment>(entity =>
             {
-                entity.ToTable("comments");
+                entity.ToTable("Comment");
 
-                entity.HasIndex(e => e.TweetId, "tweet_id");
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.HasIndex(e => e.UserId, "user_id");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.DateComment)
-                    .HasColumnType("datetime")
-                    .HasColumnName("date_comment");
-
-                entity.Property(e => e.TextComment)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("text_comment");
-
-                entity.Property(e => e.TweetId).HasColumnName("tweet_id");
-
-                entity.Property(e => e.UserId).HasColumnName("user_id");
-
-                entity.HasOne(d => d.Tweet)
-                    .WithMany(p => p.Comments)
-                    .HasForeignKey(d => d.TweetId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("comments_ibfk_2");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.Comments)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("comments_ibfk_1");
+                entity.Property(e => e.DateComment).HasColumnType("date");
             });
 
             modelBuilder.Entity<Tweet>(entity =>
             {
-                entity.ToTable("tweets");
+                entity.ToTable("Tweet");
 
-                entity.HasIndex(e => e.UserId, "user_id");
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.DateTweet)
-                    .HasColumnType("datetime")
-                    .HasColumnName("date_tweet");
-
-                entity.Property(e => e.Text)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("text");
-
-                entity.Property(e => e.UserId).HasColumnName("user_id");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.Tweets)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("tweets_ibfk_1");
+                entity.Property(e => e.DateTweet).HasColumnType("date");
             });
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.ToTable("users");
+                entity.ToTable("User");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.Date)
-                    .HasColumnType("datetime")
-                    .HasColumnName("date");
-
-                entity.Property(e => e.Description)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("description");
-
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("email");
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("name");
-
-                entity.Property(e => e.NickName)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("nick_name");
-
-                entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasMaxLength(60)
-                    .HasColumnName("password")
-                    .IsFixedLength(true);
+                entity.Property(e => e.Date).HasColumnType("date");
             });
 
             OnModelCreatingPartial(modelBuilder);
