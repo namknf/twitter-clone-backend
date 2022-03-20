@@ -1,6 +1,7 @@
 namespace Twitter_backend
 {
     using AutoMapper;
+    using FluentValidation.AspNetCore;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ namespace Twitter_backend
     using Microsoft.Extensions.Hosting;
     using Microsoft.OpenApi.Models;
     using Twitter_backend.Data;
+    using Twitter_backend.Filters;
     using Twitter_backend.Mappers;
     using Twitter_backend.Repositories;
     using Twitter_backend.Services.Account;
@@ -34,6 +36,15 @@ namespace Twitter_backend
             services.AddScoped(typeof(IAuthRegisterRepository<>), typeof(AuthRegisterRepository<>));
 
             services.AddAutoMapper(typeof(UserMapper));
+
+            services
+                .AddMvc(options =>
+                {
+                    options.EnableEndpointRouting = false;
+                    options.Filters.Add<ValidationFilter>();
+                })
+                .AddFluentValidation(mvcConfiguration =>
+                    mvcConfiguration.RegisterValidatorsFromAssemblyContaining<Twitter>());
 
             services.AddSwaggerGen(c =>
             {
