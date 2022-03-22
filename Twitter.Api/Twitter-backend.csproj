@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Twitter_backend</RootNamespace>
-	  <CodeAnalysisRuleSet>common.ruleset</CodeAnalysisRuleSet>
+	  <CodeAnalysisRuleSet>../common.ruleset</CodeAnalysisRuleSet>
 	  <ApplicationIcon />
 	  <OutputType>Exe</OutputType>
 	  <StartupObject />
