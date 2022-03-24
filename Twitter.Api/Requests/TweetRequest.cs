@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using Twitter_backend.Models;
 
-    public class TweetRequest
+    public class TweetRequest : ModelBase
     {
         public string Text { get; set; }
 
