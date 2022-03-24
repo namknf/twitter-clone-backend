@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Twitter.Api\Twitter-backend.csproj" />
+    <ProjectReference Include="..\Twitter.Api\Twitter.Api.csproj" />
   </ItemGroup>
 
 </Project>
