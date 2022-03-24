@@ -1,4 +1,4 @@
-﻿namespace Twitter_backend.Models
+﻿namespace Twitter_backend.Models.ForMappers
 {
     public class RegisterModel : ModelBase
     {

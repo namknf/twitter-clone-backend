@@ -8,6 +8,7 @@
     using Twitter_backend.Data;
     using Twitter_backend.Helpers;
     using Twitter_backend.Models;
+    using Twitter_backend.Models.ForMappers;
     using Twitter_backend.Repositories;
     using Twitter_backend.Requests;
     using Twitter_backend.Responses;

@@ -41,6 +41,8 @@ namespace Twitter_backend
             services.AddScoped(typeof(IItemsRepository<>), typeof(ItemsRepository<>));
 
             services.AddAutoMapper(typeof(UserMapper));
+            services.AddAutoMapper(typeof(TweetMapper));
+            services.AddAutoMapper(typeof(CommentMapper));
 
             services
                 .AddMvc(options =>
