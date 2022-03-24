@@ -1,6 +1,6 @@
 ﻿namespace Twitter_backend.Services.Comment
 {
-    public class CommentService
+    public class CommentService : ICommentService
     {
     }
 }
