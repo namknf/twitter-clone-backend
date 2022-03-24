@@ -11,6 +11,7 @@ namespace Twitter_backend
     using Microsoft.OpenApi.Models;
     using Twitter_backend.Data;
     using Twitter_backend.Filters;
+    using Twitter_backend.Helpers;
     using Twitter_backend.Mappers;
     using Twitter_backend.Repositories;
     using Twitter_backend.Services.Account;
@@ -54,7 +55,7 @@ namespace Twitter_backend
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Twitter_backend", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Twitter.Api", Version = "v1" });
             });
 
             services.AddScoped<IAuthService, AuthService>();
@@ -65,6 +66,8 @@ namespace Twitter_backend
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseStaticFiles();
+
             // if the app is under development
             if (env.IsDevelopment())
             {
@@ -74,7 +77,7 @@ namespace Twitter_backend
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Twitter_backend v1");
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Twitter.Api");
                 });
             }
 
@@ -83,15 +86,14 @@ namespace Twitter_backend
             // adding routing capabilities
             app.UseRouting();
 
-            app.UseAuthentication();
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
-            app.UseAuthorization();
+            app.UseMiddleware<JwtMiddleware>();
 
-            // set addresses to be processed
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(x => x.MapControllers());
         }
     }
 }
