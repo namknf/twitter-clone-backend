@@ -1,6 +1,5 @@
 namespace Twitter_backend
 {
-    using System;
     using AutoMapper;
     using FluentValidation.AspNetCore;
     using Microsoft.AspNetCore.Builder;
@@ -15,6 +14,8 @@ namespace Twitter_backend
     using Twitter_backend.Mappers;
     using Twitter_backend.Repositories;
     using Twitter_backend.Services.Account;
+    using Twitter_backend.Services.Comment;
+    using Twitter_backend.Services.Tweet;
 
     public class Twitter
     {
@@ -41,8 +42,6 @@ namespace Twitter_backend
             services.AddScoped(typeof(IItemsRepository<>), typeof(ItemsRepository<>));
 
             services.AddAutoMapper(typeof(UserMapper));
-            services.AddAutoMapper(typeof(TweetMapper));
-            services.AddAutoMapper(typeof(CommentMapper));
 
             services
                 .AddMvc(options =>
@@ -59,6 +58,8 @@ namespace Twitter_backend
             });
 
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ITweetService, TweetService>();
+            services.AddScoped<ICommentService, CommentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,7 +72,10 @@ namespace Twitter_backend
                 app.UseDeveloperExceptionPage();
 
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Twitter_backend v1"));
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Twitter_backend v1");
+                });
             }
 
             app.UseHttpsRedirection();
