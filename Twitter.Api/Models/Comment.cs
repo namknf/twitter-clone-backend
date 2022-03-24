@@ -3,7 +3,6 @@
 namespace Twitter_backend.Models
 {
     using System;
-    using System.Collections.Generic;
 
     /// <summary>
     /// .
