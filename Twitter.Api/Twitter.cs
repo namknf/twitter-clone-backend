@@ -38,6 +38,8 @@ namespace Twitter_backend
 
             services.AddScoped(typeof(IAuthRegisterRepository<>), typeof(AuthRegisterRepository<>));
 
+            services.AddScoped(typeof(IItemsRepository<>), typeof(ItemsRepository<>));
+
             services.AddAutoMapper(typeof(UserMapper));
 
             services
