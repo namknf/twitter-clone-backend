@@ -5,7 +5,7 @@
     using Twitter_backend.Models;
     using Twitter_backend.Requests;
 
-    internal interface ITweetService
+    public interface ITweetService
     {
         Task<int> Create(Tweet model);
 

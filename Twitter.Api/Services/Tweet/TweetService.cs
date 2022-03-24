@@ -4,7 +4,6 @@
     using System.Threading.Tasks;
     using Twitter_backend.Models;
     using Twitter_backend.Repositories;
-    using Twitter_backend.Requests;
 
     internal class TweetService : ITweetService
     {
