@@ -8,8 +8,7 @@
     using Twitter_backend.Responses;
     using Twitter_backend.Services.Tweet;
 
-    [ApiController]
-    internal class TweetsController : Controller
+    public class TweetsController : Controller
     {
         private readonly ITweetService _tweetService;
 
