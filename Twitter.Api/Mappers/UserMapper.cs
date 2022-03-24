@@ -2,6 +2,7 @@
 {
     using AutoMapper;
     using Twitter_backend.Models;
+    using Twitter_backend.Models.ForMappers;
     using Twitter_backend.Responses;
 
     public class UserMapper : Profile
