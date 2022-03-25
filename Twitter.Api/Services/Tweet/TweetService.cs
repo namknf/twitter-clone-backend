@@ -44,5 +44,12 @@
         {
             return _itemsRepository.GetAll();
         }
+
+        public async Task<bool> Update(Tweet tweetToUpdate)
+        {
+            int affected = await _itemsRepository.Update(tweetToUpdate);
+
+            return affected > 0;
+        }
     }
 }

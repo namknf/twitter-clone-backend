@@ -29,7 +29,7 @@
             };
 
             var baseUrl = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host.ToUriComponent()}";
-            var location = $"{baseUrl}/{ApiRoutes.Tweets.Get.Replace("{guidId}", tweet.Id.ToString())}";
+            var location = $"{baseUrl}/{ApiRoutes.Tweets.Get.Replace("{tweetId}", tweet.Id.ToString())}";
 
             int itemId = await _tweetService.Create(tweet);
 
@@ -64,6 +64,48 @@
             }
 
             return Ok(item);
+        }
+
+        [HttpGet(ApiRoutes.Tweets.GetAll)]
+        public Task<IActionResult> GetAllTweets()
+        {
+            var tweets = _tweetService.GetAllUserTweets();
+
+            return Task.FromResult<IActionResult>(Ok(tweets));
+        }
+
+        [HttpPut(ApiRoutes.Tweets.Update)]
+        public async Task<IActionResult> UpdateTweet([FromRoute] int tweetId, [FromBody] TweetRequest request)
+        {
+            if (tweetId == 0)
+            {
+                return NotFound();
+            }
+
+            if (request.UserId != null)
+            {
+                var userOwnsTweet = await _tweetService.IsUserOwnsTweet((int)request.UserId, tweetId);
+
+                if (!userOwnsTweet)
+                {
+                    return BadRequest(new { message = "You don't own this tweet" });
+                }
+            }
+
+            var comment = new Tweet()
+            {
+                Id = tweetId,
+                Text = request.Text,
+            };
+
+            var updated = await _tweetService.Update(comment);
+
+            if (updated)
+            {
+                return Ok();
+            }
+
+            return BadRequest(new { message = "Something went wrong..." });
         }
     }
 }

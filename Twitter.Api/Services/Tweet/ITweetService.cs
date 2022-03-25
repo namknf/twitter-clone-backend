@@ -3,13 +3,14 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Twitter_backend.Models;
-    using Twitter_backend.Requests;
 
     public interface ITweetService
     {
         Task<int> Create(Tweet model);
 
         Task<bool> Delete(Tweet model);
+
+        Task<bool> Update(Tweet tweetToUpdate);
 
         Tweet GetById(int id);
 

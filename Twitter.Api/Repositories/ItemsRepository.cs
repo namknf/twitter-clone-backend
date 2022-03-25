@@ -45,5 +45,14 @@
 
             return removedItem.Entity.Id;
         }
+
+        public async Task<int> Update(T entity)
+        {
+            var removedItem = _dbContext.Set<T>().Update(entity);
+
+            await _dbContext.SaveChangesAsync();
+
+            return removedItem.Entity.Id;
+        }
     }
 }
