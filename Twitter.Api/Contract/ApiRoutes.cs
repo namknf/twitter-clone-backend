@@ -25,7 +25,7 @@
             public const string Get = Root + "comments/{commentId}";
             public const string Create = Root + "comments";
             public const string Update = Root + "comments/{commentId}";
-            public const string Delete = Root + "comments/{commentsId}";
+            public const string Delete = Root + "comments/{commentId}";
         }
     }
 }
