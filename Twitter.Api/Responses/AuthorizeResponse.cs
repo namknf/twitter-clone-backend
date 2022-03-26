@@ -16,6 +16,7 @@
             Followers = user.Followers;
             Following = user.Following;
             Token = token;
+            Password = user.Password;
         }
 
         public int Id { get; init; }
@@ -35,5 +36,7 @@
         public ICollection<User> Following { get; init; }
 
         public string Token { get; set; }
+
+        public string Password { get; set; }
     }
 }
