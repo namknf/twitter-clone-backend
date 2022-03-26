@@ -12,6 +12,8 @@
 
         Task<AuthorizeResponse> Registration(RegisterModel user);
 
+        Task<bool> ConfirmEmail(int userid, string code);
+
         User GetById(int id);
     }
 }
