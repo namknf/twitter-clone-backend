@@ -61,6 +61,7 @@ namespace Twitter_backend
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ITweetService, TweetService>();
             services.AddScoped<ICommentService, CommentService>();
+            services.AddScoped<IEmailService, EmailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
