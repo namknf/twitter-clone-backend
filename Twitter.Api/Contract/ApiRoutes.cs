@@ -17,6 +17,8 @@
         {
             public const string Authenticate = Root + "authenticate";
             public const string Register = Root + "registration";
+            public const string LogOut = Root + "logout";
+            public const string ConfirmEmail = Root + "confirmemail";
         }
 
         public static class Comments
