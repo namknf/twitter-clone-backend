@@ -4,6 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Twitter_backend</RootNamespace>
 	  <CodeAnalysisRuleSet>../common.ruleset</CodeAnalysisRuleSet>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <NoWarn>$(NoWarn);1591</NoWarn>
 	  <ApplicationIcon />
 	  <OutputType>Exe</OutputType>
 	  <StartupObject />

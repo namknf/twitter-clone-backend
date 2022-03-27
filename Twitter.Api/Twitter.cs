@@ -1,5 +1,8 @@
 namespace Twitter_backend
 {
+    using System;
+    using System.IO;
+    using System.Reflection;
     using AutoMapper;
     using FluentValidation.AspNetCore;
     using Microsoft.AspNetCore.Builder;
@@ -55,7 +58,22 @@ namespace Twitter_backend
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Twitter.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "TwitterCloneBackend",
+                    Version = "v1",
+                    Description = "My Twitter backend implementation",
+
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Anastasia Malkina",
+                        Email = "anastmalkina0@gmail.com",
+                    },
+                });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
 
             services.AddScoped<IAuthService, AuthService>();
