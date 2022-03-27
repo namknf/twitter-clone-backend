@@ -58,9 +58,16 @@
         }
 
         [HttpPost(ApiRoutes.Accounts.LogOut)]
-        public async Task<IActionResult> LogOut(AuthorizeResponse response)
+        public Task<IActionResult> LogOut(AuthorizeResponse response)
         {
-            throw new System.NotImplementedException();
+            if (response.Token == null)
+            {
+                return Task.FromResult<IActionResult>(BadRequest(new { message = "You are not authorized" }));
+            }
+
+            response.Token = null;
+
+            return Task.FromResult<IActionResult>(Ok());
         }
 
         [HttpGet(ApiRoutes.Accounts.ConfirmEmail)]
