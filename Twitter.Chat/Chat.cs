@@ -10,10 +10,11 @@ namespace Twitter.Chat
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Twitter.Chat.Hubs;
 
-    public class Startup
+    public class Chat
     {
-        public Startup(IConfiguration configuration)
+        public Chat(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -23,7 +24,7 @@ namespace Twitter.Chat
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +51,7 @@ namespace Twitter.Chat
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapHub<ChatHub>("/chat");
             });
         }
     }

@@ -20,7 +20,7 @@ namespace Twitter.Chat
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Chat>();
                 });
     }
 }
