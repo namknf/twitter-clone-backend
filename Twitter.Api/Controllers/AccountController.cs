@@ -61,7 +61,7 @@
             var callbackUrl = Url.Action(
                 "ConfirmEmail",
                 "Account",
-                new { userId = user.Id, code = response.Token },
+                new { code = response.Token },
                 protocol: HttpContext.Request.Scheme);
 
             var emailService = new EmailService();
