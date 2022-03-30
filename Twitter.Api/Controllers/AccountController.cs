@@ -58,20 +58,7 @@
                 return BadRequest(new { message = "User didn't register" });
             }
 
-            var callbackUrl = Url.Action(
-                "ConfirmEmail",
-                "Account",
-                new { code = response.Token },
-                protocol: HttpContext.Request.Scheme);
-
-            var emailService = new EmailService();
-
-            await emailService.SendEmailAsync(
-                "Confirm your account",
-                $"Fine! You have become a member of our team. Welcome to Twitter! Confirm registration by clicking on the link: <a href='{callbackUrl}'>link</a>",
-                response);
-
-            return Content("To complete the registration, confirm your email and be sure to follow the link sent by mail");
+            return Ok();
         }
 
         /// <summary>
@@ -92,39 +79,6 @@
             response.Token = null;
 
             return Task.FromResult<IActionResult>(Ok());
-        }
-
-        /// <summary>
-        /// email confirmation during registration and authorization.
-        /// </summary>
-        /// <param name="userid">user's id.</param>
-        /// <param name="code">token.</param>
-        /// <returns>verified mail or not.</returns>
-        /// <response code="201">if email is confirmed.</response>
-        /// <response code="400">if email is not confirmed.</response>
-        [HttpGet(ApiRoutes.Accounts.ConfirmEmail)]
-        public async Task<IActionResult> ConfirmEmail(int userid, string code)
-        {
-            if (code == null)
-            {
-                return BadRequest(new { message="Something went wrong..." });
-            }
-
-            var user = _authService.GetById(userid);
-
-            if (user == null)
-            {
-                return BadRequest(new { message= "No such user exists" });
-            }
-
-            var result = await _authService.ConfirmEmail(userid, code);
-
-            if (result)
-            {
-                return Ok();
-            }
-
-            return BadRequest(new { message= "User is not registered" });
         }
     }
 }

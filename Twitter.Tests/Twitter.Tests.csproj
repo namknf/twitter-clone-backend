@@ -17,4 +17,8 @@
     <ProjectReference Include="..\Twitter.Api\Twitter.Api.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ServicesTests\" />
+  </ItemGroup>
+
 </Project>
