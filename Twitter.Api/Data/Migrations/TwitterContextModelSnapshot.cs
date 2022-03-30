@@ -15,6 +15,7 @@ namespace Twitter_backend.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("public")
                 .HasAnnotation("Relational:Collation", "Russian_Russia.1251")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.15")
@@ -91,6 +92,9 @@ namespace Twitter_backend.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("PasswordHash")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Token")
                         .HasColumnType("text");
 
                     b.HasKey("Id");

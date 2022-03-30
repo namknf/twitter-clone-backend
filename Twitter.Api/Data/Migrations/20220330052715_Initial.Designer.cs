@@ -10,13 +10,14 @@ using Twitter_backend.Data;
 namespace Twitter_backend.Data.Migrations
 {
     [DbContext(typeof(TwitterContext))]
-    [Migration("20220320105304_Initial")]
+    [Migration("20220330052715_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("public")
                 .HasAnnotation("Relational:Collation", "Russian_Russia.1251")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.15")
@@ -93,6 +94,9 @@ namespace Twitter_backend.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("PasswordHash")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Token")
                         .HasColumnType("text");
 
                     b.HasKey("Id");

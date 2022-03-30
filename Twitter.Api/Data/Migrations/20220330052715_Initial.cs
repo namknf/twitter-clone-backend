@@ -10,12 +10,17 @@
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "public");
+
             migrationBuilder.CreateTable(
                 name: "User",
+                schema: "public",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: true),
+                    Token = table.Column<string>(type: "text", nullable: true),
                     Password = table.Column<string>(type: "text", nullable: true),
                     PasswordHash = table.Column<string>(type: "text", nullable: true),
                     Date = table.Column<DateTime>(type: "date", nullable: true),
@@ -30,6 +35,7 @@
 
             migrationBuilder.CreateTable(
                 name: "Tweet",
+                schema: "public",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false),
@@ -43,6 +49,7 @@
                     table.ForeignKey(
                         name: "FK_Tweet_User_UserId",
                         column: x => x.UserId,
+                        principalSchema: "public",
                         principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -50,6 +57,7 @@
 
             migrationBuilder.CreateTable(
                 name: "UserUser",
+                schema: "public",
                 columns: table => new
                 {
                     FollowersId = table.Column<int>(type: "integer", nullable: false),
@@ -61,12 +69,14 @@
                     table.ForeignKey(
                         name: "FK_UserUser_User_FollowersId",
                         column: x => x.FollowersId,
+                        principalSchema: "public",
                         principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_UserUser_User_FollowingId",
                         column: x => x.FollowingId,
+                        principalSchema: "public",
                         principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -74,6 +84,7 @@
 
             migrationBuilder.CreateTable(
                 name: "Comment",
+                schema: "public",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false),
@@ -88,12 +99,14 @@
                     table.ForeignKey(
                         name: "FK_Comment_Tweet_TweetId",
                         column: x => x.TweetId,
+                        principalSchema: "public",
                         principalTable: "Tweet",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Comment_User_UserId",
                         column: x => x.UserId,
+                        principalSchema: "public",
                         principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -101,21 +114,25 @@
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comment_TweetId",
+                schema: "public",
                 table: "Comment",
                 column: "TweetId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comment_UserId",
+                schema: "public",
                 table: "Comment",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tweet_UserId",
+                schema: "public",
                 table: "Tweet",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserUser_FollowingId",
+                schema: "public",
                 table: "UserUser",
                 column: "FollowingId");
         }
@@ -123,16 +140,20 @@
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Comment");
+                name: "Comment",
+                schema: "public");
 
             migrationBuilder.DropTable(
-                name: "UserUser");
+                name: "UserUser",
+                schema: "public");
 
             migrationBuilder.DropTable(
-                name: "Tweet");
+                name: "Tweet",
+                schema: "public");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "User",
+                schema: "public");
         }
     }
 }
