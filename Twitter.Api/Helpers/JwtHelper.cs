@@ -13,7 +13,7 @@
         public static string GenerateJwtToken(this IConfiguration configuration, User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(configuration["!S#cr#tI&nf0rm_5"]);
+            var key = Encoding.ASCII.GetBytes(configuration["Secret"]);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
