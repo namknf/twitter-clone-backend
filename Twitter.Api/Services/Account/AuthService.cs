@@ -83,10 +83,10 @@
 
             var response = Authorize(
                 new AuthorizeRequest
-                     {
-                        Email = user.Email,
-                        Password = user.Password,
-                     });
+                {
+                    Email = user.Email,
+                    Password = user.Password,
+                });
 
             return response;
         }

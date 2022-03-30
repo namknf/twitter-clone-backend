@@ -68,11 +68,10 @@ namespace Twitter_backend.Data
             });
 
             base.OnModelCreating(modelBuilder);
-            modelBuilder.HasDefaultSchema("public");
 
             modelBuilder.Entity<User>().Property(u => u.Id)
                 .UseIdentityAlwaysColumn()
-                .HasIdentityOptions(startValue: 2);
+                .HasIdentityOptions(startValue: 1);
         }
     }
 }
