@@ -1,6 +1,6 @@
 ﻿namespace Twitter_backend.Models.ForMappers
 {
-    public class RegisterModel : ModelBase
+    public class RegisterModel
     {
         public string Email { get; set; }
 
