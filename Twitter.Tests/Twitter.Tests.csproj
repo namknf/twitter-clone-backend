@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ServicesTests\" />
+    <Folder Include="ControllersTests\" />
   </ItemGroup>
 
 </Project>
