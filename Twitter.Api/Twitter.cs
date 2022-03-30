@@ -62,7 +62,7 @@ namespace Twitter_backend
                 {
                     Title = "TwitterCloneBackend",
                     Version = "v1",
-                    Description = "My Twitter backend implementation",
+                    Description = "My Twitter Api implementation",
 
                     Contact = new OpenApiContact
                     {
