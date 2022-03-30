@@ -21,7 +21,11 @@
         private readonly IConfiguration _configuration;
         private readonly IMapper _map;
 
-        public AuthService(IConfiguration configuration, IMapper map, IAuthRegisterRepository<User> authRepository, TwitterContext context)
+        public AuthService(
+            IConfiguration configuration,
+            IMapper map,
+            IAuthRegisterRepository<User> authRepository,
+            TwitterContext context)
         {
             _configuration = configuration;
             _map = map;
@@ -73,16 +77,16 @@
             }
 
             // hash password
-            user.PasswordHash = BCryptNet.HashPassword(user.Password);
+            user.PasswordHash = BCryptNet.HashPassword(userModel.Password);
 
             await _authRepository.Add(user);
 
             var response = Authorize(
                 new AuthorizeRequest
-                {
-                    Email = user.Email,
-                    Password = user.PasswordHash,
-                });
+                     {
+                        Email = user.Email,
+                        Password = user.Password,
+                     });
 
             return response;
         }

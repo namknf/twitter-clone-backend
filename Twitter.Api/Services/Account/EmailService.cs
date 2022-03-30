@@ -21,7 +21,7 @@
             };
 
             using var client = new SmtpClient();
-            await client.ConnectAsync(" ", 465, true);
+            await client.ConnectAsync("smtp.gmail.com", 465, true);
             await client.AuthenticateAsync(user.Email, user.Password);
             await client.SendAsync(mimeMessage);
 
