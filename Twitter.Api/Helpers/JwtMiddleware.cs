@@ -38,7 +38,7 @@
             try
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(_configuration["!S#cr#tI&nf0rm_5"]);
+                var key = Encoding.ASCII.GetBytes(_configuration["Secret"]);
 
                 tokenHandler.ValidateToken(token: token, validationParameters: new TokenValidationParameters
                 {
