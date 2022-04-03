@@ -19,6 +19,11 @@ namespace Twitter_backend.Data
         {
         }
 
+        public TwitterContext(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         public TwitterContext(DbContextOptions<TwitterContext> options)
             : base(options)
         {
