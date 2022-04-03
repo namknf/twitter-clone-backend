@@ -5,6 +5,7 @@ namespace Twitter_backend.Data
     using System;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata;
+    using Microsoft.Extensions.Configuration;
     using Twitter_backend.Models;
 
     /// <summary>
@@ -12,6 +13,8 @@ namespace Twitter_backend.Data
     /// </summary>
     public partial class TwitterContext : DbContext
     {
+        private readonly IConfiguration _configuration;
+
         public TwitterContext()
         {
         }
@@ -31,8 +34,7 @@ namespace Twitter_backend.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=twitter;Username=postgres;Password=Ye8g6K_r?");
+                optionsBuilder.UseNpgsql(_configuration["DefaultConnection"]);
             }
         }
 
