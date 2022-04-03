@@ -1,7 +1,6 @@
 ﻿namespace Twitter_backend.Requests
 {
     using System;
-    using System.Collections.Generic;
     using Twitter_backend.Models;
 
     public class TweetRequest : ModelBase
