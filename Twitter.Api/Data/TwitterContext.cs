@@ -9,7 +9,7 @@ namespace Twitter_backend.Data
     using Twitter_backend.Models;
 
     /// <summary>
-    /// .
+    /// Application Database Context.
     /// </summary>
     public partial class TwitterContext : DbContext
     {
@@ -72,7 +72,7 @@ namespace Twitter_backend.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<User>().Property(u => u.Id)
-                .UseIdentityAlwaysColumn()
+                .UseIdentityByDefaultColumn()
                 .HasIdentityOptions(startValue: 1);
         }
     }
