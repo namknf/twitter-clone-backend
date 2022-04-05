@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Twitter_backend.Models;
 
     internal interface IAuthRegisterRepository<T>
     {
