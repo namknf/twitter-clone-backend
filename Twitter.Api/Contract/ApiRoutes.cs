@@ -3,6 +3,7 @@
     public class ApiRoutes
     {
         public const string Root = "api/";
+        public const string Auth = "auth/";
 
         public static class Tweets
         {
@@ -15,10 +16,10 @@
 
         public static class Accounts
         {
-            public const string Authenticate = Root + "authenticate";
-            public const string Register = Root + "registration";
-            public const string LogOut = Root + "logout";
-            public const string ConfirmEmail = Root + "confirmemail";
+            public const string Authenticate = Root + Auth + "login";
+            public const string Register = Root + Auth + "register";
+            public const string LogOut = Root + Auth + "logout";
+            public const string ConfirmEmail = Root + Auth + "confirmemail";
         }
 
         public static class Comments
