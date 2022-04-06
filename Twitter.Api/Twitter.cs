@@ -24,8 +24,6 @@ namespace Twitter_backend
 
     public class Twitter
     {
-        private string _connection;
-
         public Twitter(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -36,6 +34,8 @@ namespace Twitter_backend
         // Get connection string from configuration file
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<TwitterContext>();
+
             var builder = new NpgsqlConnectionStringBuilder(
                 Configuration.GetConnectionString("DefaultConnection"))
             {
@@ -43,10 +43,6 @@ namespace Twitter_backend
                 Username = Configuration["DbUsername"],
                 Database = Configuration["DbName"],
             };
-            _connection = builder.ConnectionString;
-
-            services.AddDbContext<TwitterContext>(options =>
-                options.UseNpgsql(_connection));
 
             services.AddControllers();
             services.AddCors();

@@ -13,6 +13,8 @@ namespace Twitter_backend.Data
     /// </summary>
     public partial class TwitterContext : DbContext
     {
+        private readonly IConfiguration _configuration;
+
         public TwitterContext()
         {
         }
@@ -20,6 +22,11 @@ namespace Twitter_backend.Data
         public TwitterContext(DbContextOptions<TwitterContext> options)
             : base(options)
         {
+        }
+
+        public TwitterContext(IConfiguration configuration)
+        {
+            _configuration = configuration;
         }
 
         public virtual DbSet<Comment> Comments { get; set; }
@@ -30,11 +37,9 @@ namespace Twitter_backend.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            IConfiguration configuration = null;
-
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql(configuration["DefaultConnection"]);
+                optionsBuilder.UseNpgsql(_configuration["DefaultConnection"]);
             }
         }
 
