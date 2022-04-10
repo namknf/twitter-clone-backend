@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  twitter.api:
+    image: ${DOCKER_REGISTRY-}twitterapi
+    build:
+      context: .
+      dockerfile: Dockerfile

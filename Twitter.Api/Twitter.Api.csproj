@@ -11,6 +11,7 @@
     <UserSecretsId>554da79c-3102-4767-9572-94731913f709</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+    <DockerComposeProjectPath>docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
 	<ItemGroup>
