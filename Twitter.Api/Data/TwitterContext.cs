@@ -29,17 +29,17 @@ namespace Twitter_backend.Data
             _configuration = configuration;
         }
 
-        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; } = null!;
 
-        public virtual DbSet<Tweet> Tweets { get; set; }
+        public virtual DbSet<Tweet> Tweets { get; set; } = null!;
 
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=twitter;Username=postgres;Password='Ye8g6K_r?'");
+                optionsBuilder.UseNpgsql(_configuration["DefaultConnection"]);
             }
         }
 
