@@ -5,9 +5,11 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twitter.Api", "Twitter.Api.csproj", "{520AF8EF-D83E-4347-813E-BCF236B3AAEB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twitter.Tests", "..\Twitter.Tests\Twitter.Tests.csproj", "{398E08FB-1DB3-4729-81C4-71C6FF92CAB3}"
-EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{7ADD2CE3-31E4-4CFE-A172-ECEA6E918B13}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twitter.xunitTests", "..\Twitter.xunitTests\Twitter.xunitTests\Twitter.xunitTests.csproj", "{F7C2E20F-8D24-4015-8AFE-36BFF5834736}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twitter.NunitTests", "..\Twitter.NunitTests\Twitter.NunitTests.csproj", "{F81C8B6C-87DF-4CEB-92D5-BE00031AE30E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +21,18 @@ Global
 		{520AF8EF-D83E-4347-813E-BCF236B3AAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{520AF8EF-D83E-4347-813E-BCF236B3AAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{520AF8EF-D83E-4347-813E-BCF236B3AAEB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{398E08FB-1DB3-4729-81C4-71C6FF92CAB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{398E08FB-1DB3-4729-81C4-71C6FF92CAB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{398E08FB-1DB3-4729-81C4-71C6FF92CAB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{398E08FB-1DB3-4729-81C4-71C6FF92CAB3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7ADD2CE3-31E4-4CFE-A172-ECEA6E918B13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7ADD2CE3-31E4-4CFE-A172-ECEA6E918B13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7ADD2CE3-31E4-4CFE-A172-ECEA6E918B13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ADD2CE3-31E4-4CFE-A172-ECEA6E918B13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7C2E20F-8D24-4015-8AFE-36BFF5834736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7C2E20F-8D24-4015-8AFE-36BFF5834736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7C2E20F-8D24-4015-8AFE-36BFF5834736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7C2E20F-8D24-4015-8AFE-36BFF5834736}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F81C8B6C-87DF-4CEB-92D5-BE00031AE30E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F81C8B6C-87DF-4CEB-92D5-BE00031AE30E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F81C8B6C-87DF-4CEB-92D5-BE00031AE30E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F81C8B6C-87DF-4CEB-92D5-BE00031AE30E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
