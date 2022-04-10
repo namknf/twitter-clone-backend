@@ -39,7 +39,7 @@ namespace Twitter_backend.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql(_configuration["DefaultConnection"]);
+                optionsBuilder.UseNpgsql(_configuration["ConnectionString"]);
             }
         }
 
@@ -51,7 +51,9 @@ namespace Twitter_backend.Data
             {
                 entity.ToTable("Comment");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasIdentityOptions(null, null, null, 2345123L);
 
                 entity.Property(e => e.DateComment).HasColumnType("date");
             });
@@ -60,7 +62,9 @@ namespace Twitter_backend.Data
             {
                 entity.ToTable("Tweet");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasIdentityOptions(null, null, null, 2345123L);
 
                 entity.Property(e => e.DateTweet).HasColumnType("date");
             });
@@ -69,16 +73,14 @@ namespace Twitter_backend.Data
             {
                 entity.ToTable("User");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .HasIdentityOptions(null, null, null, 2345123L);
 
                 entity.Property(e => e.Date).HasColumnType("date");
             });
 
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<User>().Property(u => u.Id)
-                .UseIdentityByDefaultColumn()
-                .HasIdentityOptions(startValue: 1);
         }
     }
 }
