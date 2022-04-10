@@ -39,7 +39,7 @@ namespace Twitter_backend.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql(_configuration["ConnectionString"]);
+                optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=twitter;Username=postgres;Password='Ye8g6K_r?'");
             }
         }
 

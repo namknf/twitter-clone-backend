@@ -105,9 +105,6 @@ namespace Twitter_backend.Data.Migrations
                     b.Property<string>("PasswordHash")
                         .HasColumnType("text");
 
-                    b.Property<string>("Token")
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
 
                     b.ToTable("User");

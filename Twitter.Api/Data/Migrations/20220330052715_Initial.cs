@@ -20,7 +20,6 @@
                 {
                     Id = table.Column<int>(type: "integer", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: true),
-                    Token = table.Column<string>(type: "text", nullable: true),
                     Password = table.Column<string>(type: "text", nullable: true),
                     PasswordHash = table.Column<string>(type: "text", nullable: true),
                     Date = table.Column<DateTime>(type: "date", nullable: true),
