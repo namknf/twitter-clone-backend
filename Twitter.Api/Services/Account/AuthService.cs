@@ -54,13 +54,6 @@
             return null;
         }
 
-        public async Task<bool> ConfirmEmail(int userid, string code)
-        {
-            var user = _authRepository.GetById(userid);
-
-            return await Task.FromResult(user.Token == code);
-        }
-
         public User GetById(int id)
         {
             return _authRepository.GetById(id);
