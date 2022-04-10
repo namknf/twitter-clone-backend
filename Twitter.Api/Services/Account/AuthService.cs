@@ -71,6 +71,7 @@
 
             // hash password
             user.PasswordHash = BCryptNet.HashPassword(userModel.Password);
+            user.Date = DateTime.Now;
 
             await _authRepository.Add(user);
 
